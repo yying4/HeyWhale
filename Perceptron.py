@@ -16,7 +16,7 @@ def predict(x, w):
 def training(data):
     # The parameter of bias is equal to 1，
     # because the predicted label yi^ = f(b+w*xi).
-    bias = np.ones((4, 1))
+    bias = np.ones((len(data), 1))
 
     # add 1 as the first input for each record
     data = np.concatenate((bias, data), 1)  
@@ -46,7 +46,7 @@ def training(data):
 
 # Predict labels using weight from training
 def testing(data, weight):
-    bias = np.ones((4, 1))
+    bias = np.ones((len(data), 1))
 
     data = np.concatenate((bias, data), 1)  
     for i in data:
@@ -62,9 +62,9 @@ xis are the features for training
 '''
 train_data = np.array([
     [1, 1, 1],
-    [1, 2, 1],
+    [1, 0, 0],
+    [0, 1, 0],
     [0, 0, 0],
-    [-1, 0, 0],
     ], dtype=np.int)
 
 weight = training(train_data)
@@ -75,10 +75,10 @@ Testing data:
 records consist of only xis without labels
 '''
 test_data = np.array([
-    [2, 1],
-    [1, 2],
-    [0, 1],
-    [0, -1],
+    [0, 0],
+    [1, 0],
+    [1, 1],
+    [0, 1]
 ], dtype=np.int)
 
 print('\nPredictions:')
