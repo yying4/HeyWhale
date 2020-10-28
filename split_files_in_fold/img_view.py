@@ -34,7 +34,6 @@ for img in img_list:
         cv2.rectangle(img=pic, pt1=(int(xmin/2), int(ymin/2)),
                       pt2=(int(xmax/2), int(ymax/2)), color=(255, 255, 255), thickness=3)
     for r in roi_box:
-
         xmin = int(r.getElementsByTagName('xmin')[0].firstChild.data)
         ymin = int(r.getElementsByTagName('ymin')[0].firstChild.data)
         xmax = int(r.getElementsByTagName('xmax')[0].firstChild.data)
